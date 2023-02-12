@@ -1,0 +1,30 @@
+SELECT employees.first_name, employees.last_name, employees.department_id, department.department_name
+FROM employees
+INNER JOIN department ON employees.department_id=department.department_id;
+
+
+SELECT employees.first_name, employees.last_name, department.department_name, locations.city, locations.state_province
+FROM employees
+INNER JOIN department ON employees.department_id=department.department_id, locations on department.location_id=locations.location_id;
+
+
+SELECT employees.first_name, employees.last_name, employees.department_id, department.department_name
+FROM employees
+INNER JOIN department ON employees.department_id=department.department_id
+WHERE employees.department_id = 40 or employees.department_id = 80;
+
+
+SELECT jobs.job_title, CONCAT(employees.first_name, employees.last_name) as 'Full Name', jobs.max_salary-employees.salary as 'diff'
+FROM employees
+INNER JOIN jobs ON employees.job_id=jobs.job_id
+
+
+SELECT jobs.job_title, SUM(employees.salary)/COUNT(employees.job_id)
+FROM jobs
+inner join employees on employees.job_id=jobs.job_id
+
+
+SELECT employees.first_name, employees.last_name, employees.salary
+FROM employees
+INNER JOIN department ON employees.department_id=department.department_id
+WHERE department.name = 'London';
