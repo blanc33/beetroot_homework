@@ -1,0 +1,28 @@
+CREATE TABLE personal
+(
+PersonID int
+);
+
+
+RENAME TABLE personal TO person;
+
+
+ALTER TABLE person ADD name varchar(50);
+
+
+INSERT INTO personal (name)
+VALUES ('Liubov');
+INSERT INTO personal (name)
+VALUES ('Sofia');
+INSERT INTO personal (name)
+VALUES ('Halyna');
+
+
+UPDATE personal
+SET name = 'Alfred Schmidt'
+WHERE PersonID = 1;
+
+
+DELETE FROM personal WHERE name='Halyna';
+
+
